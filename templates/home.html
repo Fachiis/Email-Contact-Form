@@ -1,0 +1,25 @@
+
+{% load crispy_forms_tags %}
+<DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta chartype='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
+    {% block title %}<title>Contact Form</title>{% endblock title %}
+</head>
+
+<body> 
+    <div class="container mt-2">
+    {% block content %}
+    <form method="POST" autocomplete="on">
+        <h4>Contact Us</h4>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form> 
+    {% endblock content %}
+    </div>
+</body>
+</html>
